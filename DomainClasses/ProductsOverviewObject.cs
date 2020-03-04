@@ -3,7 +3,7 @@
 namespace RCS.AdventureWorks.Common.DomainClasses
 {
     [DataContract]
-    public partial class ProductsOverviewObject : DomainClass, IShoppingProduct
+    public class ProductsOverviewObject : DomainClass, IShoppingProduct
     {
         [DataMember]
         public string Color { get; set; }

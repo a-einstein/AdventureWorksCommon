@@ -3,7 +3,7 @@
 namespace RCS.AdventureWorks.Common.DomainClasses
 {
     [DataContract]
-    public partial class ProductCategory : DomainClass
+    public class ProductCategory : DomainClass
     {
     }
 }

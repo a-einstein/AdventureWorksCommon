@@ -8,7 +8,7 @@ namespace RCS.AdventureWorks.Common.Dtos
     [CollectionDataContract]
     // Note this is not implemented in Mono.
     [DebuggerDisplay("Count = {Count}")]
-    public partial class ProductsOverviewList : List<ProductsOverviewObject>
+    public class ProductsOverviewList : List<ProductsOverviewObject>
     {
     }
 }

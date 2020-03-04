@@ -6,10 +6,10 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     [DataContract]
     // Note this is not implemented in Mono.
     [DebuggerDisplay("{Id.HasValue ? Id.Value : 0}, {Name}, {ProductListPrice}, {Quantity}, {Value}")]
-    public partial class CartItem : DomainClass
+    public class CartItem : DomainClass
     {
         [DataMember]
-        public int ProductID { get; set; }
+        public int ProductId { get; set; }
 
         [DataMember]
         public string ProductSize { get; set; }
@@ -27,7 +27,7 @@ namespace RCS.AdventureWorks.Common.DomainClasses
 
         public int Quantity
         {
-            get { return quantity; }
+            get => quantity;
             set
             {
                 quantity = value;
@@ -40,7 +40,7 @@ namespace RCS.AdventureWorks.Common.DomainClasses
 
         public decimal Value
         {
-            get { return value; }
+            get => value;
             set
             {
                 this.value = value;

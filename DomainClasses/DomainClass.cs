@@ -27,10 +27,7 @@ namespace RCS.AdventureWorks.Common.DomainClasses
             return Name;
         }
 
-        public bool IsEmpty
-        {
-            get { return !Id.HasValue; }
-        }
+        public bool IsEmpty => !Id.HasValue;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
