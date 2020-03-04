@@ -9,7 +9,7 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     public class CartItem : DomainClass
     {
         [DataMember]
-        public int ProductID { get; set; }
+        public int ProductId { get; set; }
 
         [DataMember]
         public string ProductSize { get; set; }
@@ -23,27 +23,27 @@ namespace RCS.AdventureWorks.Common.DomainClasses
         [DataMember]
         public decimal ProductListPrice { get; set; }
 
-        int quantity;
+        int _quantity;
 
         public int Quantity
         {
-            get { return quantity; }
+            get { return _quantity; }
             set
             {
-                quantity = value;
+                _quantity = value;
                 Value = ProductListPrice * Quantity;
                 RaisePropertyChanged(nameof(Quantity));
             }
         }
 
-        decimal value;
+        decimal _value;
 
         public decimal Value
         {
-            get { return value; }
+            get { return _value; }
             set
             {
-                this.value = value;
+                this._value = value;
                 RaisePropertyChanged(nameof(Value));
             }
         }
