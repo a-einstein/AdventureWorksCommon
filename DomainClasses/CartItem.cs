@@ -23,27 +23,27 @@ namespace RCS.AdventureWorks.Common.DomainClasses
         [DataMember]
         public decimal ProductListPrice { get; set; }
 
-        int _quantity;
+        int quantity;
 
         public int Quantity
         {
-            get { return _quantity; }
+            get { return quantity; }
             set
             {
-                _quantity = value;
+                quantity = value;
                 Value = ProductListPrice * Quantity;
                 RaisePropertyChanged(nameof(Quantity));
             }
         }
 
-        decimal _value;
+        decimal value;
 
         public decimal Value
         {
-            get { return _value; }
+            get { return value; }
             set
             {
-                this._value = value;
+                this.value = value;
                 RaisePropertyChanged(nameof(Value));
             }
         }
