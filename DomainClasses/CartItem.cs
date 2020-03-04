@@ -6,7 +6,7 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     [DataContract]
     // Note this is not implemented in Mono.
     [DebuggerDisplay("{Id.HasValue ? Id.Value : 0}, {Name}, {ProductListPrice}, {Quantity}, {Value}")]
-    public partial class CartItem : DomainClass
+    public class CartItem : DomainClass
     {
         [DataMember]
         public int ProductID { get; set; }
