@@ -8,6 +8,7 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     [DebuggerDisplay("{Id.HasValue ? Id.Value : 0}, {Name}, {ProductListPrice}, {Quantity}, {Value}")]
     public class CartItem : DomainClass
     {
+        #region DataMembers
         [DataMember]
         public int ProductId { get; set; }
 
@@ -22,7 +23,10 @@ namespace RCS.AdventureWorks.Common.DomainClasses
 
         [DataMember]
         public decimal ProductListPrice { get; set; }
+        #endregion
 
+        // TODO Make this partial?
+        #region Additional members
         int quantity;
 
         public int Quantity
@@ -30,9 +34,13 @@ namespace RCS.AdventureWorks.Common.DomainClasses
             get => quantity;
             set
             {
-                quantity = value;
-                Value = ProductListPrice * Quantity;
-                RaisePropertyChanged(nameof(Quantity));
+                // The condition prevented binding between control and viewmodel to loop.
+                if (quantity != value)
+                {
+                    quantity = value;
+                    Value = ProductListPrice * Quantity;
+                    RaisePropertyChanged(nameof(Quantity));
+                }
             }
         }
 
@@ -43,9 +51,43 @@ namespace RCS.AdventureWorks.Common.DomainClasses
             get => value;
             set
             {
-                this.value = value;
-                RaisePropertyChanged(nameof(Value));
+                if (this.value != value)
+                {
+                    this.value = value;
+                    RaisePropertyChanged(nameof(Value));
+                }
             }
         }
+        #endregion
+
+        #region Construction
+        public CartItem()
+        { }
+
+        public CartItem(IShoppingProduct product)
+        {
+            ProductId = product.Id.Value;
+            Name = product.Name;
+            ProductSize = product.Size;
+            ProductSizeUnitMeasureCode = product.SizeUnitMeasureCode;
+            ProductColor = product.Color;
+            ProductListPrice = product.ListPrice;
+            Quantity = 1;
+        }
+
+        public CartItem Copy()
+        {
+            return new CartItem()
+            {
+                ProductId = ProductId,
+                Name = Name,
+                ProductSize = ProductSize,
+                ProductSizeUnitMeasureCode = ProductSizeUnitMeasureCode,
+                ProductColor = ProductColor,
+                ProductListPrice = ProductListPrice,
+                Quantity = Quantity
+            };
+        }
+        #endregion
     }
 }
