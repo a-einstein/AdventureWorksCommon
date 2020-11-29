@@ -5,6 +5,7 @@
 		<RootNamespace>RCS.AdventureWorks.Common</RootNamespace>
 		<Authors>RCS</Authors>
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
+		<Platforms>AnyCPU;x86</Platforms>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
