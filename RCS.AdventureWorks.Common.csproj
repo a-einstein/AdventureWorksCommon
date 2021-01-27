@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;net5.0-windows</TargetFrameworks>
 		<RootNamespace>RCS.AdventureWorks.Common</RootNamespace>
 		<Authors>RCS</Authors>
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
