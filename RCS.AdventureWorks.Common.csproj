@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net5.0-windows</TargetFrameworks>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<RuntimeIdentifiers>win-x86</RuntimeIdentifiers>
 		<RootNamespace>RCS.AdventureWorks.Common</RootNamespace>
 		<Authors>RCS</Authors>
