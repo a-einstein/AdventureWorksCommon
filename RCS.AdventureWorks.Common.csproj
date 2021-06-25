@@ -2,6 +2,8 @@
 	<PropertyGroup>
 		<!-- Work around https://developercommunity.visualstudio.com/t/clickonce-publish-of-a-net-50-application-fails-wh/1452276-->
 		<TargetFramework>netstandard2.0</TargetFramework>
+		<!--Needed for WPF in Azure.-->
+		<RuntimeIdentifiers>win-x86</RuntimeIdentifiers>
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
