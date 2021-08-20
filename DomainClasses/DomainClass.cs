@@ -29,6 +29,9 @@ namespace RCS.AdventureWorks.Common.DomainClasses
 
         public bool IsEmpty => !Id.HasValue;
 
+        #region PropertyChanged
+        // TODO This does not belong in the Domain, should be in a different layer.
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         // Currently for selective raising of events, before turning properties into full DependencyProperties.
@@ -36,5 +39,6 @@ namespace RCS.AdventureWorks.Common.DomainClasses
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
     }
 }

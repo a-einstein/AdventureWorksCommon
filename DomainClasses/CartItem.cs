@@ -9,6 +9,8 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     public class CartItem : DomainClass
     {
         #region DataMembers
+        // TODO Why not refer to the product, instead of copying its members?
+
         [DataMember]
         public int ProductId { get; set; }
 
@@ -72,11 +74,13 @@ namespace RCS.AdventureWorks.Common.DomainClasses
             ProductSizeUnitMeasureCode = product.SizeUnitMeasureCode;
             ProductColor = product.Color;
             ProductListPrice = product.ListPrice;
+
             Quantity = 1;
         }
 
         public CartItem Copy()
         {
+            // TODO This could use the constructor if CartItem : IShoppingProduct.
             return new CartItem()
             {
                 ProductId = ProductId,
@@ -85,8 +89,23 @@ namespace RCS.AdventureWorks.Common.DomainClasses
                 ProductSizeUnitMeasureCode = ProductSizeUnitMeasureCode,
                 ProductColor = ProductColor,
                 ProductListPrice = ProductListPrice,
+
                 Quantity = Quantity
             };
+        }
+        #endregion
+
+        #region CRUD
+        public void Update(CartItem proxy)
+        {
+            ProductId = proxy.ProductId;
+            Name = proxy.Name;
+            ProductSize = proxy.ProductSize;
+            ProductSizeUnitMeasureCode = proxy.ProductSizeUnitMeasureCode;
+            ProductColor = proxy.ProductColor;
+            ProductListPrice = proxy.ProductListPrice;
+
+            Quantity = proxy.Quantity;
         }
         #endregion
     }
