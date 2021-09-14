@@ -1,4 +1,4 @@
-﻿using RCS.AdventureWorks.Common.General;
+﻿using RCS.AdventureWorks.Common.Interfaces;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.Serialization;

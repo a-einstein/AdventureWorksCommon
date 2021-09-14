@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using RCS.AdventureWorks.Common.Interfaces;
+using System.Runtime.Serialization;
 
 namespace RCS.AdventureWorks.Common.DomainClasses
 {

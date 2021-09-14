@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using RCS.AdventureWorks.Common.Interfaces;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 
 namespace RCS.AdventureWorks.Common.DomainClasses
