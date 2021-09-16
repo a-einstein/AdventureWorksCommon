@@ -1,17 +1,16 @@
-﻿using RCS.AdventureWorks.Common.General;
-using System.ComponentModel;
+﻿using RCS.AdventureWorks.Common.Interfaces;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
 namespace RCS.AdventureWorks.Common.DomainClasses
 {
     // Note these classes in fact are DTO's too.
-    // TODO Reconsider namespaces and whether this should be a separately included project elsewhere.
     [DataContract]
     // Note this is not implemented in Mono.
     [DebuggerDisplay("{Id.HasValue ? Id.Value : 0}, {Name}")]
-    public abstract class DomainClass : IEmptyAble, INotifyPropertyChanged
+    public abstract class DomainClass : IEmptyAble
     {
+        #region DataMembers
         // This has been made nullable for practical reasons, 
         // particularly to enable empty elements in dropdown lists.
         // These elements can also be convenient for filtering.
@@ -21,24 +20,17 @@ namespace RCS.AdventureWorks.Common.DomainClasses
 
         [DataMember]
         public string Name { get; set; }
+        #endregion
 
+        #region Utility
         public override string ToString()
         {
             return Name;
         }
+        #endregion
 
+        #region IEmptyAble
         public bool IsEmpty => !Id.HasValue;
-
-        #region PropertyChanged
-        // TODO This does not belong in the Domain, should be in a different layer.
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // Currently for selective raising of events, before turning properties into full DependencyProperties.
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         #endregion
     }
 }

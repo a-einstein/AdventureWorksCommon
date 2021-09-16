@@ -1,4 +1,4 @@
-﻿namespace RCS.AdventureWorks.Common.DomainClasses
+﻿namespace RCS.AdventureWorks.Common.Interfaces
 {
     public interface IShoppingProduct
     {

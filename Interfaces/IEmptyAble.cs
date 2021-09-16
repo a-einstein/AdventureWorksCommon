@@ -1,4 +1,4 @@
-﻿namespace RCS.AdventureWorks.Common.General
+﻿namespace RCS.AdventureWorks.Common.Interfaces
 {
     public interface IEmptyAble
     {
