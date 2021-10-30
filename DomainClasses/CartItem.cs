@@ -9,6 +9,8 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     [DebuggerDisplay("{Name} : {ProductListPrice} x {Quantity}")]
     public class CartItem : DomainClass
     {
+        // Note this contains an arbitrary selection of properties copied from Product,
+        // to which it could just refer by ProductId.
         #region DataMembers
         [DataMember]
         public int ProductId { get; set; }
@@ -25,6 +27,9 @@ namespace RCS.AdventureWorks.Common.DomainClasses
         [DataMember]
         public decimal ProductListPrice { get; set; }
 
+        /// <summary>
+        /// Actively adaptable by user.
+        /// </summary>
         [DataMember]
         public int Quantity { get; set; }
         #endregion
@@ -65,6 +70,9 @@ namespace RCS.AdventureWorks.Common.DomainClasses
         #region CRUD
         public void Update(CartItem proxy)
         {
+            // TODO Simplify this, as only Quantity could change.
+            // Which is a matter of the whole CartItem, which could just refer by ProductId.
+
             ProductId = proxy.ProductId;
             Name = proxy.Name;
             ProductSize = proxy.ProductSize;
