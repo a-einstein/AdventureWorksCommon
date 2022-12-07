@@ -7,4 +7,7 @@
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="rem https://github.com/dotnet/maui/issues/10150&#xD;&#xA;if NOT EXIST &quot;$(ProjectDir)$(OutDir)android-arm64&quot; md &quot;$(ProjectDir)$(OutDir)android-arm64&quot;&#xD;&#xA;   xcopy &quot;$(ProjectDir)$(OutDir)&quot; &quot;$(ProjectDir)$(OutDir)android-arm64&quot; /y" />
+	</Target>
 </Project>
