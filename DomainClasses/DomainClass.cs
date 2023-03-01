@@ -7,12 +7,12 @@ namespace RCS.AdventureWorks.Common.DomainClasses
     // Note these classes in fact are DTO's too.
     [DataContract]
     // Note this is not implemented in Mono.
-    [DebuggerDisplay("{Id.HasValue ? Id.Value : 0}, {Name}")]
+    [DebuggerDisplay("{Id}, {Name}")]
     public abstract class DomainClass : IEmptyAble
     {
         #region DataMembers
         // This has been made nullable for practical reasons, 
-        // particularly to enable empty elements in dropdown lists.
+        // particularly to enable void elements in dropdown lists.
         // These elements can also be convenient for filtering.
         // Besides that a new object to be inserted may not have a true Id yet.
         [DataMember]
