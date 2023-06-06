@@ -1,12 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk"> 
 	<PropertyGroup>
-    
-		<!-- Work around https://developercommunity.visualstudio.com/t/clickonce-publish-of-a-net-50-application-fails-wh/1452276-->
-		<TargetFramework>netstandard2.0</TargetFramework>
-
-    <!--Needed for Azure builds. https://stackoverflow.com/questions/74865704/asset-file-project-assets-json-has-no-target-for-net6-0-win-x64-on-wapproj-->
-		<RuntimeIdentifiers>win10-x86;android-arm;android-arm64;android-x64;android-x86</RuntimeIdentifiers>
-    
+    <TargetFrameworks>net7.0;net7.0-android</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>    
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
