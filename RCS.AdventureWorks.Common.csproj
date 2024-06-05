@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk"> 
 	<PropertyGroup>
-    <TargetFrameworks>net7.0;net7.0-android</TargetFrameworks>
+    <TargetFrameworks>net7.0</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>    
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
