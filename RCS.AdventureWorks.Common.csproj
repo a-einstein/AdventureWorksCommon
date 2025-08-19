@@ -1,12 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk"> 
 	<PropertyGroup>
-    
-		<!-- Work around https://developercommunity.visualstudio.com/t/clickonce-publish-of-a-net-50-application-fails-wh/1452276-->
-		<TargetFramework>netstandard2.0</TargetFramework>
-
-    <!--Needed for Azure builds. https://stackoverflow.com/questions/74865704/asset-file-project-assets-json-has-no-target-for-net6-0-win-x64-on-wapproj-->
-		<RuntimeIdentifiers>win10-x86;android-arm;android-arm64;android-x64;android-x86</RuntimeIdentifiers>
-    
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <!--Do not concatenate conditional TargetFrameworks.-->
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">net8.0-windows8</TargetFrameworks>    
 		<Configurations>Debug;Release;Test;DebugService</Configurations>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
